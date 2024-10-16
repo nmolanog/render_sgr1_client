@@ -47,7 +47,7 @@ export default function Commit() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const responseCommits = await fetch(`http://localhost:5000/commitment/search4enroll_id/${enroll_id}`,
+                const responseCommits = await fetch(`https://render-sgr1-server.onrender.com/commitment/search4enroll_id/${enroll_id}`,
                     {
                         method: "GET",
                         headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ export default function Commit() {
                     // If the response is not ok, throw an error
                     throw new Error('Failed to fetch commits. Please try again.');
                 }
-                const responseEnrollment = await fetch(`http://localhost:5000/enrollment/search/${enroll_id}`,
+                const responseEnrollment = await fetch(`https://render-sgr1-server.onrender.com/enrollment/search/${enroll_id}`,
                     {
                         method: "GET",
                         headers: { "Content-Type": "application/json" },
@@ -87,7 +87,7 @@ export default function Commit() {
         const getDeferrData = async () => {
             if (enrollment.state && enrollment.state === 'Deferred') {
                 try {
-                    const responseDeferrData = await fetch(`http://localhost:5000/enrollment/searchdeferr/${enroll_id}`,
+                    const responseDeferrData = await fetch(`https://render-sgr1-server.onrender.com/enrollment/searchdeferr/${enroll_id}`,
                         {
                             method: "GET",
                             headers: { "Content-Type": "application/json" },
@@ -113,7 +113,7 @@ export default function Commit() {
                 deffering_date: defferringForm.deffering_date,
                 deffering_date_semester: deferredDateSemester
             };
-            const response = await fetch(`http://localhost:5000/enrollment/defer/${enroll_id}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/defer/${enroll_id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -163,7 +163,7 @@ export default function Commit() {
                 return_date: ReactivateDateSemester,
                 enroll_id: enroll_id
             };
-            const response = await fetch(`http://localhost:5000/enrollment/reactivate/${defferrData.id}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/reactivate/${defferrData.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -177,7 +177,7 @@ export default function Commit() {
                 alert("Enrollment deferred sucessfully!");
             };
 
-            const response2 = await fetch(`http://localhost:5000/commitment/update_duedate`,
+            const response2 = await fetch(`https://render-sgr1-server.onrender.com/commitment/update_duedate`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

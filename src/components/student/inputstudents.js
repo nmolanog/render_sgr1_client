@@ -21,7 +21,7 @@ export default function InputStudents() {
 
     const getstudents = async () => {
         try {
-            const response = await fetch("http://localhost:5000/student",
+            const response = await fetch("https://render-sgr1-server.onrender.com/student",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -65,7 +65,7 @@ export default function InputStudents() {
             if(formData.priv_mail !== "" && !validateEmail(formData.priv_mail)){
                 throw new Error('Private Email: not a valid email');
             }
-            const response = await fetch("http://localhost:5000/student/insert",
+            const response = await fetch("https://render-sgr1-server.onrender.com/student/insert",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

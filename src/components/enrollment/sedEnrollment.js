@@ -13,7 +13,7 @@ export default function SedEnrollment() {
 
     const getAllEnrollments = async () => {
         try {
-            const response = await fetch("http://localhost:5000/enrollment/all",
+            const response = await fetch("https://render-sgr1-server.onrender.com/enrollment/all",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export default function SedEnrollment() {
         }
         try {
             const params = new URLSearchParams({ attribute: enrollAtrrib, query: enrollQuery });
-            const response = await fetch(`http://localhost:5000/enrollment/search?${params}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/search?${params}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },

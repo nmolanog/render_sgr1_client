@@ -27,7 +27,7 @@ export default function EditStudent(props) {
         //put request
         try {
             // Check if ID already exists (this need to load availables id's)
-            const responseAllIds = await fetch("http://localhost:5000/student/allids",
+            const responseAllIds = await fetch("https://render-sgr1-server.onrender.com/student/allids",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -54,7 +54,7 @@ export default function EditStudent(props) {
             }
 
             //copy row to be edited in db
-            const responseCopy = await fetch(`http://localhost:5000/student/copy/${student.id_stu}`,
+            const responseCopy = await fetch(`https://render-sgr1-server.onrender.com/student/copy/${student.id_stu}`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -62,7 +62,7 @@ export default function EditStudent(props) {
                 }
             );
             //finally update the row
-            const response = await fetch(`http://localhost:5000/student/edit/${student.id_stu}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/student/edit/${student.id_stu}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

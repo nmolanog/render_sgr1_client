@@ -14,7 +14,7 @@ export default function SedStudent() {
 
     const getAllstudents = async () => {
         try {
-            const response = await fetch("http://localhost:5000/student",
+            const response = await fetch("https://render-sgr1-server.onrender.com/student",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -59,7 +59,7 @@ export default function SedStudent() {
         }
         try {
             const params = new URLSearchParams({ attribute: stuAtrrib, query: stuQuery });
-            const response = await fetch(`http://localhost:5000/student/search?${params}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/student/search?${params}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },

@@ -11,7 +11,7 @@ export default function DeleteProgram(props) {
         setIsModalOpen(true);
         try {
             // check if program has enrollments
-            const responseNumEnroll = await fetch(`http://localhost:5000/program/enrollmentsnum/${program.id}`,
+            const responseNumEnroll = await fetch(`https://render-sgr1-server.onrender.com/program/enrollmentsnum/${program.id}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ export default function DeleteProgram(props) {
                 throw new Error('enrollments for this program already exists, cannot delete');
             }
 
-            const response = await fetch(`http://localhost:5000/program/deactivate/${program.id}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/program/deactivate/${program.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

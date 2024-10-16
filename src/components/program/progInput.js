@@ -14,7 +14,7 @@ export default function ProgInput() {
 
     const getPrograms = async () => {
         try {
-            const response = await fetch("http://localhost:5000/program",
+            const response = await fetch("https://render-sgr1-server.onrender.com/program",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ export default function ProgInput() {
             if (programs.some((data) => data.name === formData.name)) {
                 throw new Error('Program already exists!');
             }
-            const response = await fetch("http://localhost:5000/program/insert",
+            const response = await fetch("https://render-sgr1-server.onrender.com/program/insert",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

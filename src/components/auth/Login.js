@@ -18,7 +18,7 @@ const Login = ({ authStatus, setAuthStatus }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:5000/auth/login", {
+            const response = await fetch("https://render-sgr1-server.onrender.com/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Login = ({ authStatus, setAuthStatus }) => {
 
             if (response.ok) {
                 // Refetch authentication status after login
-                const authResponse = await fetch("http://localhost:5000/auth/status", {
+                const authResponse = await fetch("https://render-sgr1-server.onrender.com/auth/status", {
                     credentials: "include",  // Important for session handling
                 });
                 const authData = await authResponse.json();

@@ -62,7 +62,7 @@ export default function Appointments() {
     useEffect(() => {
         const getAppointments = async () => {
             try {
-                const responseAppointments = await fetch(`http://localhost:5000/appointment/search4commit_id/${commit_id}`,
+                const responseAppointments = await fetch(`https://render-sgr1-server.onrender.com/appointment/search4commit_id/${commit_id}`,
                     {
                         method: "GET",
                         headers: { "Content-Type": "application/json" },
@@ -89,7 +89,7 @@ export default function Appointments() {
         const getAppointmentsDates = async () => {
             if (appointment.length > 0) {
                 try {
-                    const responseAppoDates = await fetch(`http://localhost:5000/appointment/searchallappo/${appointment[0].enroll_id}`,
+                    const responseAppoDates = await fetch(`https://render-sgr1-server.onrender.com/appointment/searchallappo/${appointment[0].enroll_id}`,
                         {
                             method: "GET",
                             headers: { "Content-Type": "application/json" },
@@ -177,7 +177,7 @@ export default function Appointments() {
         //post request
         try {
 
-            const response = await fetch("http://localhost:5000/appointment/insert",
+            const response = await fetch("https://render-sgr1-server.onrender.com/appointment/insert",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -191,7 +191,7 @@ export default function Appointments() {
             }
 
             if (formData.end_commit === "yes") {
-                const response2 = await fetch(`http://localhost:5000/commitment/end/${commit_id}`,
+                const response2 = await fetch(`https://render-sgr1-server.onrender.com/commitment/end/${commit_id}`,
                     {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
@@ -206,7 +206,7 @@ export default function Appointments() {
             }
 
             if (formData.end_commit === "yes" && appointment[0].duration === appointment[0].commit_num) {
-                const response3 = await fetch(`http://localhost:5000/enrollment/end/${appointment[0].enroll_id}`,
+                const response3 = await fetch(`https://render-sgr1-server.onrender.com/enrollment/end/${appointment[0].enroll_id}`,
                     {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
@@ -252,7 +252,7 @@ export default function Appointments() {
                 end_commit: unfulfilledForm.end_commit
             };
 
-            const response = await fetch(`http://localhost:5000/appointment/fullfile/${unfulfilledApoIds}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/appointment/fullfile/${unfulfilledApoIds}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -265,7 +265,7 @@ export default function Appointments() {
             }
 
             if (unfulfilledForm.end_commit === "yes") {
-                const response2 = await fetch(`http://localhost:5000/commitment/edit/${commit_id}`,
+                const response2 = await fetch(`https://render-sgr1-server.onrender.com/commitment/edit/${commit_id}`,
                     {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
@@ -280,7 +280,7 @@ export default function Appointments() {
             }
 
             if (unfulfilledForm.end_commit === "yes" && appointment[0].duration === appointment[0].commit_num) {
-                const response3 = await fetch(`http://localhost:5000/enrollment/edit/${appointment[0].enroll_id}`,
+                const response3 = await fetch(`https://render-sgr1-server.onrender.com/enrollment/edit/${appointment[0].enroll_id}`,
                     {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },

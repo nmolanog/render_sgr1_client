@@ -16,7 +16,7 @@ const SearchStudForEnroll = ({ value, onSelect }) => {
             const params = new URLSearchParams({ query: inputValue });
 
             // Fetch data using fetch API
-            const response = await fetch(`http://localhost:5000/student/search4enroll?${params}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/student/search4enroll?${params}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },

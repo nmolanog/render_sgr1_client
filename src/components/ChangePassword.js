@@ -16,7 +16,7 @@ const ChangePassword = ({ authStatus, setAuthStatus }) => {
         e.preventDefault();
         try {
             // Add oldPassword as a query parameter
-            const response = await fetch(`http://localhost:5000/auth/verify_password/${authStatus.userid}?oldPassword=${encodeURIComponent(oldPassword)}`,
+            const response = await fetch(`https://render-sgr1-server.onrender.com/auth/verify_password/${authStatus.userid}?oldPassword=${encodeURIComponent(oldPassword)}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -42,7 +42,7 @@ const ChangePassword = ({ authStatus, setAuthStatus }) => {
         try {
             const requestBody = { newPassword };
 
-            const response = await fetch(`http://localhost:5000/auth/editpassword/${authStatus.userid}`, {
+            const response = await fetch(`https://render-sgr1-server.onrender.com/auth/editpassword/${authStatus.userid}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestBody),

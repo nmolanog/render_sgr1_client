@@ -16,7 +16,7 @@ const SearchProgForEnroll = ({ value, onSelect }) => {
             const params = new URLSearchParams({ query: inputValue });
 
             // Fetch data using fetch API
-            const response = await fetch(`https://render-sgr1-server.onrender.com/program/search4enroll?${params}`, {
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/program/search4enroll?${params}`, {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include"

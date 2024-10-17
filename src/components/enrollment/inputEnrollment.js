@@ -69,7 +69,7 @@ export default function InputEnrollments() {
         //post request
         try {
 
-            const response = await fetch("https://render-sgr1-server.onrender.com/enrollment/insert",
+            const response = await fetch("https://rendersgr1server-production.up.railway.app/enrollment/insert",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -91,7 +91,7 @@ export default function InputEnrollments() {
             setIsModalOpen(true);
             //commit
 
-            const response2 = await fetch(`https://render-sgr1-server.onrender.com/commitment/insert/${tempIdCommit}`, {
+            const response2 = await fetch(`https://rendersgr1server-production.up.railway.app/commitment/insert/${tempIdCommit}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

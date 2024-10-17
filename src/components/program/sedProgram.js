@@ -14,7 +14,7 @@ export default function SedProgram() {
 
     const getAllPrograms = async () => {
         try {
-            const response = await fetch("https://render-sgr1-server.onrender.com/program",
+            const response = await fetch("https://rendersgr1server-production.up.railway.app/program",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -50,7 +50,7 @@ export default function SedProgram() {
         }
         try {
             const params = new URLSearchParams({ attribute: progAtrrib, query: progQuery });
-            const response = await fetch(`https://render-sgr1-server.onrender.com/program/search?${params}`,
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/program/search?${params}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },

@@ -18,7 +18,7 @@ export default function OmitCommit(props) {
     const handleOmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://render-sgr1-server.onrender.com/commitment/omit/${commit.id}`,
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/commitment/omit/${commit.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

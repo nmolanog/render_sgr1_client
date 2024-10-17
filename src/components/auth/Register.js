@@ -44,7 +44,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://render-sgr1-server.onrender.com/auth/register", {
+      const response = await fetch("https://rendersgr1server-production.up.railway.app/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

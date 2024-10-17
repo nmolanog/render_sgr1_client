@@ -12,7 +12,7 @@ export default function DeleteEnrollment(props) {
         setIsModalOpen(true);
         try {
             // check if program has enrollments
-            const responseNumAppo = await fetch(`https://render-sgr1-server.onrender.com/enrollment/appointmentsnum/${enroll.enroll_id}`,
+            const responseNumAppo = await fetch(`https://rendersgr1server-production.up.railway.app/enrollment/appointmentsnum/${enroll.enroll_id}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -43,7 +43,7 @@ export default function DeleteEnrollment(props) {
                 throw new Error('Appointments for this enrollment already exists, cannot delete');
             }
 */
-            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/deactivate/${enroll.enroll_id}`,
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/enrollment/deactivate/${enroll.enroll_id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

@@ -14,7 +14,7 @@ export default function SedStudent() {
 
     const getAllstudents = async () => {
         try {
-            const response = await fetch("https://render-sgr1-server.onrender.com/student",
+            const response = await fetch("https://rendersgr1server-production.up.railway.app/student",
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
@@ -59,7 +59,7 @@ export default function SedStudent() {
         }
         try {
             const params = new URLSearchParams({ attribute: stuAtrrib, query: stuQuery });
-            const response = await fetch(`https://render-sgr1-server.onrender.com/student/search?${params}`,
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/student/search?${params}`,
                 {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },

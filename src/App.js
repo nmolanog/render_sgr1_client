@@ -29,7 +29,7 @@ function App() {
     // Fetch authentication status from the server
     const checkAuthStatus = async () => {
       try {
-        const response = await fetch("https://render-sgr1-server.onrender.com/auth/status", {
+        const response = await fetch("https://rendersgr1server-production.up.railway.app/auth/status", {
           credentials: "include",  // Important for session handling
         });
         const data = await response.json();

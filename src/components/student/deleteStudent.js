@@ -22,7 +22,7 @@ export default function DeleteStudent(props) {
 
         //put request
         try {
-            const response = await fetch(`https://render-sgr1-server.onrender.com/student/deactivate/${student.id_stu}`,
+            const response = await fetch(`https://rendersgr1server-production.up.railway.app/student/deactivate/${student.id_stu}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

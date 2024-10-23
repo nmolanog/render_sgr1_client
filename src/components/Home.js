@@ -67,7 +67,7 @@ const Home = ({ authStatus, setAuthStatus }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("https://render-sgr1-server.onrender.com/auth/logout", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/logout`, {
         method: "GET",
         credentials: "include", // Important for session-based logout
       });

@@ -4,10 +4,10 @@ import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { Card } from 'primereact/card';
-import { format } from 'date-fns';
 import TableCommits from "./tableCommit";
 import styles from "../styles.module.css";
 const { getAdjustedDateFormated } = require('../../utilities/dateFunctions');
+const { utcDate } = require('../../utilities/dateFunctions');
 
 
 
@@ -47,7 +47,7 @@ export default function Commit() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const responseCommits = await fetch(`https://render-sgr1-server.onrender.com/commitment/search4enroll_id/${enroll_id}`,
+                const responseCommits = await fetch(`${process.env.REACT_APP_API_URL}/commitment/search4enroll_id/${enroll_id}`,
                     {
                         method: "GET",
                         headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ export default function Commit() {
                     // If the response is not ok, throw an error
                     throw new Error('Failed to fetch commits. Please try again.');
                 }
-                const responseEnrollment = await fetch(`https://render-sgr1-server.onrender.com/enrollment/search/${enroll_id}`,
+                const responseEnrollment = await fetch(`${process.env.REACT_APP_API_URL}/enrollment/search/${enroll_id}`,
                     {
                         method: "GET",
                         headers: { "Content-Type": "application/json" },
@@ -87,7 +87,7 @@ export default function Commit() {
         const getDeferrData = async () => {
             if (enrollment.state && enrollment.state === 'Deferred') {
                 try {
-                    const responseDeferrData = await fetch(`https://render-sgr1-server.onrender.com/enrollment/searchdeferr/${enroll_id}`,
+                    const responseDeferrData = await fetch(`${process.env.REACT_APP_API_URL}/enrollment/searchdeferr/${enroll_id}`,
                         {
                             method: "GET",
                             headers: { "Content-Type": "application/json" },
@@ -113,7 +113,7 @@ export default function Commit() {
                 deffering_date: defferringForm.deffering_date,
                 deffering_date_semester: deferredDateSemester
             };
-            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/defer/${enroll_id}`,
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/enrollment/defer/${enroll_id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -163,7 +163,7 @@ export default function Commit() {
                 return_date: ReactivateDateSemester,
                 enroll_id: enroll_id
             };
-            const response = await fetch(`https://render-sgr1-server.onrender.com/enrollment/reactivate/${defferrData.id}`,
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/enrollment/reactivate/${defferrData.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -177,7 +177,7 @@ export default function Commit() {
                 alert("Enrollment deferred sucessfully!");
             };
 
-            const response2 = await fetch(`https://render-sgr1-server.onrender.com/commitment/update_duedate`,
+            const response2 = await fetch(`${process.env.REACT_APP_API_URL}/commitment/update_duedate`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -256,11 +256,11 @@ export default function Commit() {
                         <li>Current year: {enrollment.current_year}</li>
                         { // beware dates from db are imported as string in the front end
                             enrollment.start_date_semester ?
-                                (<li>Start date (semester): {format(new Date(enrollment.start_date_semester), 'MM/dd/yyyy')}</li>) :
+                                (<li>Start date (semester): {utcDate(enrollment.start_date_semester)}</li>) :
                                 (<li> Loading enrollment data...</li>)}
 
                         {enrollment.end_date ?
-                            (<li>End date (semester): {format(new Date(enrollment.end_date), 'MM/dd/yyyy')}</li>) :
+                            (<li>End date (semester): {utcDate(enrollment.end_date)}</li>) :
                             (<li> Loading enrollment data...</li>)}
                         <li>State: {enrollment.state}</li>
                     </ul>
@@ -281,7 +281,7 @@ export default function Commit() {
                        
                         <ul>
                             <li>Deffering date: {defferrData.deffering_date_semester && defferrData.deffering_date_semester!=="" ? 
-                            format(new Date(defferrData.deffering_date_semester), 'MM/dd/yyyy'):(<p>Loading...</p>)} </li>
+                            utcDate(defferrData.deffering_date_semester):(<p>Loading...</p>)} </li>
                             <li>Deffer state: {defferrData.deffer_state} </li>
                         </ul>
                        

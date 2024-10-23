@@ -27,7 +27,7 @@ export default function DeleteAppo(props) {
 
         //put request
         try {
-            const response = await fetch(`https://render-sgr1-server.onrender.com/appointment/deactivate/${appointment.apo_id}`,
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/appointment/deactivate/${appointment.apo_id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
